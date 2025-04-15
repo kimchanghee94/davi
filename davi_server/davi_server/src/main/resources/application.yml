@@ -1,0 +1,49 @@
+server:
+  port: 7272
+  tomcat:
+    uri-encoding: UTF-8
+
+
+spring:
+  #DB설정
+  datasource:
+    url: ENC(A/efaP8HNPen14tNJqyp5APGnzrnSEBNklQI1I6pCn8CRs5fZFyqd/R0LeypYvAdIxiugRlXRYCnb+Go2P33xA==)
+    username: ENC(poyT2dkV7XyvekQ4324PFQ==)
+    password: ENC(tHBtIstZbgUcLWh/wK9vYssnUbZtI+YT)
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    hikari:
+      connection-timeout: 3000
+      validation-timeout: 3000
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 200000
+      max-lifetime: 240000
+      pool-name: postgrePool
+  java:
+    opts: -Xms512m -Xmx5012m
+
+#mybatis 설정
+mybatis:
+#  type-aliases-package: com.davi_server.**.dto
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+#yml의 보안사항 문자열 암호화 처리
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari:
+          HikariConfig: INFO
+    jdbc:
+      sqlonly: OFF     #SQL만 로그로 남긴다.
+      audit: OFF
+      resultset: OFF
+      resultsettable: INFO  #SQL 결과 데이터 Table을 로그로 남긴다.
+      sqltiming: INFO    #SQL과 소요시간을 표기한다.
+      connection: OFF  # 커넥션 확인가능

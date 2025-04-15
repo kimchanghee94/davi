@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.public_data_portal.repository.PublicDataPortalRepository">
+
+    <select id="selectListByTableJsonFlag" parameterType="map" resultType="com.davi_server.public_data_portal.dto.PublicDataPortalDto">
+        SELECT
+            *
+        FROM
+            dv_public_data_portal
+        WHERE
+            table_json_flag = #{tableJsonFlag}
+        AND
+            api_name like '%행정안전부_지진 옥외대피장소'
+        OR
+            api_name like '%행정안전부_이재민%'
+        OR
+            api_name like '해양경찰청_차량추락위치'
+        OR
+            api_name like '경상북도_SOC시설당 읍면동별%'
+    </select>
+</mapper>

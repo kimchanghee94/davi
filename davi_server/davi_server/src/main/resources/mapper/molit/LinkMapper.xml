@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.molit.repository.LinkRepository">
+    <select id="selectByPropLinkId" parameterType="map" resultType="com.davi_server.molit.dto.LinkDto">
+        SELECT
+            *
+        FROM
+            dv_molit_link
+        WHERE
+            prop_link_id = #{propLinkId}
+    </select>
+
+    <select id="selectSampleList" resultType="com.davi_server.molit.dto.LinkDto">
+        SELECT
+            *
+        FROM
+            dv_molit_link
+        limit 10
+    </select>
+
+    <select id="selectList" resultType="com.davi_server.molit.dto.LinkDto">
+        SELECT
+            *
+        FROM
+            dv_molit_link
+        limit 1000
+    </select>
+</mapper>

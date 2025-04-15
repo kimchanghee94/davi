@@ -1,0 +1,58 @@
+server:
+  port: '8282'
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  #JPA-HIBERNATE 설정
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        #hibernate
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+    hibernate:
+      #naming:
+        #Entity myTable(CamelCase)=> my_table(UnderScore) 기본동작
+        #아래 동작은 입력값 그대로 출력하게 되있음
+        #implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        #physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+
+  #DB설정
+  datasource:
+    url: ENC(FB4AzES6UGNrjln90E7+mOOl/zVtku7p/Xa41r4ZNOg18XNgHt7tnyMBg1J1bB7UfYkURsljevs=)
+    username: ENC(yaNIvS4ciDYi92R83+0qHw==)
+    password: ENC(YVx0wRZVSTl9AAQ5rme/dLfRLEUcMZpw)
+    hikari:
+      maximum-pool-size: '35'
+
+  #BATCH 설정
+  batch:
+    initialize-schema: always
+
+#yml의 보안사항 문자열 암호화 처리
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+
+logging:
+  level:
+    #hibernate logging처리
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: trace
+    com:
+      zaxxer:
+        hikari:
+          HikariConfig: DEBUG
+
+
+
+
+

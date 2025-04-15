@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.traffic.repository.BusSeoulInfoRepository">
+    <select id="selectSampleList" parameterType="map" resultType="com.davi_server.traffic.dto.BusSeoulInfoDto">
+        SELECT
+            *
+        FROM
+            dv_traffic_bus_seoul_info
+        <where>
+            <if test = "routeId != null and routeId != ''">
+                and route_id = #{routeId}
+            </if>
+            <if test = "nodeOrder != null and nodeOrder != ''">
+                and node_order = #{nodeOrder}
+            </if>
+        </where>
+        ORDER BY
+            node_order :: INTEGER
+        limit 10
+    </select>
+
+    <select id="selectList" parameterType="map" resultType="com.davi_server.traffic.dto.BusSeoulInfoDto">
+        SELECT
+            *
+        FROM
+            dv_traffic_bus_seoul_info
+        <where>
+            <if test='true'>
+                (route_nm = '2312' or route_nm = '3323' or route_nm = '342')
+            </if>
+            <if test = 'routeId != null and routeId != ""'>
+                AND route_id = #{routeId}
+            </if>
+            <if test = 'nodeOrder != null and nodeOrder != ""'>
+                AND node_order = #{nodeOrder}
+            </if>
+        </where>
+        ORDER BY
+            node_order :: INTEGER
+    </select>
+</mapper>

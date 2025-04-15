@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.traffic.repository.BusRoutePathRepository">
+    <select id="selectList" parameterType="map" resultType="com.davi_server.traffic.dto.BusRoutePathDto">
+        SELECT
+            *
+        FROM
+            dv_traffic_bus_route_path
+        <where>
+            <if test = 'routeId != null and routeId != ""'>
+                AND route_id = #{routeId}
+            </if>
+        </where>
+    </select>
+</mapper>

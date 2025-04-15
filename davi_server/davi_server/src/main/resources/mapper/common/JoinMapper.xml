@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.common.repository.JoinRepository">
+    <select id="selectEupMyeonDongRelatedList" parameterType="map" resultType="com.davi_server.molit.dto.EupMyeonDongDto">
+        SELECT
+            <foreach collection="selectColumn" item="item" separator=",">
+                ${item}
+            </foreach>
+        FROM
+            dv_molit_eup_myeon_dong
+        WHERE
+        <foreach collection="joinColumn" item="key" separator="AND">
+            ${key} in
+            <foreach collection="joinData" item="value" open="(" close=")" separator=",">
+                <if test="value[key] != null">
+                    #{value.${key}}
+                </if>
+            </foreach>
+        </foreach>
+<!--        WHERE-->
+<!--        <foreach collection="joinColumn" item="key" separator="AND">-->
+<!--            <foreach collection="data" item="value" open="(" close=")" separator="OR">-->
+<!--                ${key} like #{value.${key}}-->
+<!--            </foreach>-->
+<!--        </foreach>-->
+    </select>
+</mapper>

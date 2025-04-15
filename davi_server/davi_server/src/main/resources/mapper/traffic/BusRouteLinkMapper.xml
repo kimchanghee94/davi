@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.traffic.repository.BusRouteLinkRepository">
+    <select id="selectSampleList" parameterType="map" resultType="com.davi_server.traffic.dto.BusRouteLinkDto">
+        SELECT
+            *
+        FROM
+            dv_traffic_bus_route_link
+        <where>
+            <if test = "routeId != null and routeId != ''">
+                and route_id = #{routeId}
+            </if>
+            <if test = "linkOrder != null and linkOrder != ''">
+                and link_order = #{linkOrder}
+            </if>
+        </where>
+        ORDER BY
+            link_order :: INTEGER
+        limit 10
+    </select>
+
+    <select id="selectList" parameterType="map" resultType="com.davi_server.traffic.dto.BusRouteLinkDto">
+        SELECT
+            *
+        FROM
+            dv_traffic_bus_route_link
+        <where>
+            <if test = "routeId != null and routeId != ''">
+                and route_id = #{routeId}
+            </if>
+            <if test = "linkOrder != null and linkOrder != ''">
+                and link_order = #{linkOrder}
+            </if>
+        </where>
+        ORDER BY
+            link_order :: INTEGER
+    </select>
+</mapper>

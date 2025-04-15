@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.public_data_portal.repository.PublicDataPortalServiceRepository">
+    <select id="selectListByPublicDataPortalId" parameterType="map" resultType="com.davi_server.public_data_portal.dto.PublicDataPortalServiceDto">
+        SELECT
+            *
+        FROM
+            dv_public_data_portal_service
+        WHERE
+            public_data_portal_id = #{publicDataPortalId}
+    </select>
+</mapper>

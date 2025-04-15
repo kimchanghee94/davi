@@ -1,0 +1,79 @@
+package com.davi_server.molit.service;
+
+import com.davi_server.common.util.ConstantUtil;
+import com.davi_server.molit.dto.RoadDto;
+import com.davi_server.molit.dto.SiDoDto;
+import com.davi_server.molit.repository.SiDoRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Log4j2
+@Service
+@RequiredArgsConstructor
+public class SiDoService {
+    private final SiDoRepository siDoRepository;
+
+    public Map<String, Object> selectList(){
+        Map<String, Object> result = new HashMap<>();
+
+        try{
+            List<SiDoDto> siDoDtos = siDoRepository.selectList();
+
+            result.put("success", true);
+            result.put("message", "Get SiDo List Success");
+            result.put("data", siDoDtos);
+        }catch (Exception e){
+            e.printStackTrace();
+            result.put("success", false);
+            result.put("message", "Get SiDo List Fail");
+        }
+
+        return result;
+    }
+
+
+    @Cacheable(value = ConstantUtil.CACHE_MOLIT_VALUE, key = "#cacheKey")
+    public Map<String, Object> selectSampleList(String cacheKey){
+        Map<String, Object> result = new HashMap<>();
+
+        try{
+            List<SiDoDto> siDoDtos = siDoRepository.selectSampleList();
+
+            result.put("success", true);
+            result.put("message", "Get SiDo Sample List Success");
+            result.put("data", siDoDtos);
+        }catch (Exception e){
+            e.printStackTrace();
+            result.put("success", false);
+            result.put("message", "Get SiDo Sample List Fail");
+        }
+
+        return result;
+    }
+
+    @CachePut(value = ConstantUtil.CACHE_MOLIT_VALUE, key = "#cacheKey")
+    public Map<String, Object> reSelectSampleList(String cacheKey){
+        Map<String, Object> result = new HashMap<>();
+
+        try{
+            List<SiDoDto> siDoDtos = siDoRepository.selectSampleList();
+
+            result.put("success", true);
+            result.put("message", "Get SiDo Sample List Success");
+            result.put("data", siDoDtos);
+        }catch (Exception e){
+            e.printStackTrace();
+            result.put("success", false);
+            result.put("message", "Get SiDo Sample List Fail");
+        }
+
+        return result;
+    }
+}

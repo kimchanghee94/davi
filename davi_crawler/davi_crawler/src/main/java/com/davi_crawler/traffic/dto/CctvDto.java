@@ -1,0 +1,66 @@
+package com.davi_crawler.traffic.dto;
+import com.davi_crawler.traffic.entity.CctvEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CctvDto {
+    private Long cctvId;
+    private Long dataListId;
+    private String mnlssRegltCameraManageNo;
+    private String ctprvnNm;
+    private String signguNm;
+    private String roadKnd;
+    private String roadRouteNo;
+    private String roadRouteNm;
+    private String roadRouteDrc;
+    private String rdnmadr;
+    private String lnmadr;
+    private String latitude;
+    private String longitude;
+    private String itlpc;
+    private String regltSe;
+    private String lmttVe;
+    private String regltSctnLcSe;
+    private String ovrspdRegltSctnLt;
+    private String prtcareaType;
+    private String installationYear;
+    private String institutionNm;
+    private String phoneNumber;
+    private String referenceDate;
+    private String insttCode;
+
+    public CctvEntity toEntity(){
+        return CctvEntity.builder()
+                .cctvId(cctvId)
+                .dataListId(dataListId)
+                .mnlssRegltCameraManageNo(mnlssRegltCameraManageNo)
+                .ctprvnNm(ctprvnNm)
+                .signguNm(signguNm)
+                .roadKnd(roadKnd)
+                .roadRouteNo(roadRouteNo)
+                .roadRouteNm(roadRouteNm)
+                .roadRouteDrc(roadRouteDrc)
+                .rdnmadr(rdnmadr)
+                .lnmadr(lnmadr)
+                .latitude(latitude)
+                .longitude(longitude)
+                .itlpc(itlpc)
+                .regltSe(regltSe)
+                .lmttVe(lmttVe)
+                .regltSctnLcSe(regltSctnLcSe)
+                .ovrspdRegltSctnLt(ovrspdRegltSctnLt)
+                .prtcareaType(prtcareaType)
+                .installationYear(installationYear)
+                .institutionNm(institutionNm)
+                .phoneNumber(phoneNumber)
+                .referenceDate(referenceDate)
+                .insttCode(insttCode)
+                .build();
+    }
+}

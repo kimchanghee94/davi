@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.davi_server.khoa.repository.BuoyRepository">
+    <select id="selectSampleList" resultType="com.davi_server.khoa.dto.BuoyDto">
+        SELECT
+            *
+        FROM
+            dv_khoa_buoy
+                limit 2000
+    </select>
+
+    <select id="selectList" resultType="com.davi_server.khoa.dto.BuoyDto">
+        SELECT
+            *
+        FROM
+            dv_khoa_buoy
+                limit 1000
+    </select>
+
+    <select id="selectClickPosList" parameterType="map" resultType="com.davi_server.khoa.dto.BuoyDto">
+        SELECT
+            *
+        FROM
+            dv_khoa_buoy
+        WHERE
+
+
+    </select>
+</mapper>
