@@ -13,20 +13,13 @@
 * DAVI_CLIENT : Svelte, Spring boot - JPA - Build Gradle - Redis
   * 사용자에게 화면을 출력하고 JWT 토큰방식으로 인증 처리 및 세션 유지 역할
 
-* Server : Apache, Tomcat, PostgreSQL
-* Database : 로컬에 구축 (MySQLWorkBench 사용)
+* DB-Server : PostgreSQL
 * IDE : intellij
 * TextEditor : Visual Studio Code
 
 
-## svelte-springboot
-svelte프론트단과 springboot 백엔드 단으로 연동하여 SSR형태로 구현
-
-테스트 페이지 구현
-
+## 테스트 페이지
 ![SvelteTestPage](https://user-images.githubusercontent.com/45596085/221448488-c6dc95d1-f502-46d4-9450-20a5e62c2194.png)
 
-
 ## 항만 위치 처리와 배의 실시간 위치 처리 예시
-
 https://github.com/user-attachments/assets/b659ce5a-7afe-4bf7-984a-a26d1726072f
