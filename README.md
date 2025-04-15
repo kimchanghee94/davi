@@ -1,6 +1,12 @@
 # DAVI
 공공 데이터 포털 실시간 시각화 플랫폼
 
+* DAVI_CRAWLER : Spring boot - JPA - Build Gradle
+** 
+* DAVI_SERVER : Spring boot - JPA - Build Gradle
+* DAVI_WEBSOCKET : NodeJs
+* DAVI_CLIENT : Svelte, Spring boot - JPA - Build Gradle
+
 * Front : Svelte
 * Backend : Spring boot
 * Server : Apache, Tomcat, PostgreSQL
