@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.8'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //postgresSQL
+    implementation "org.postgresql:postgresql"
+
+    //jdbc
+    implementation "org.springframework.boot:spring-boot-starter-jdbc"
+    implementation "org.springframework.data:spring-data-jdbc"
+
+    //mybatis
+    //implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0"
+
+    //jpa
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+
+    //lombok
+    implementation "org.projectlombok:lombok"
+//    annotationProcessor group : 'org.projectlombok', name: 'lombok',version:'1.18.22'
+//    compileOnly group: 'org.projectlombok', name:'lombok', version:'1.18.22'
+
+    //json-simple
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version:"1.1.1"
+
+    //spring-security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    //Redis
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    //Jsoup
+    implementation 'org.jsoup:jsoup:1.13.1'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

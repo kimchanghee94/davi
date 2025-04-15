@@ -1,0 +1,46 @@
+server:
+  port: '5052'
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  redis:
+    host: localhost
+    port: 6379
+  jpa:
+    generate-ddl: 'false'
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        use_sql_comments: 'true'
+        format_sql: 'true'
+        show_sql: 'true'
+    hibernate:
+      naming:
+        #아래 strategy hibernate 4점대까지만 사용되었고 deprecated되었다. 그 아래 2개가 사용
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: none
+    show-sql: 'true'
+  datasource:
+    password: 'kenny12!@'
+    username: davi
+    hikari:
+      maximum-pool-size: '35'
+    url: jdbc:postgresql://101.101.218.31:5433/davi
+    #show-sql: 'true'
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari:
+          HikariConfig: DEBUG
+          nodeValue: DEBUG
+jwt:
+  secret: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa

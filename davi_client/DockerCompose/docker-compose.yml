@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  kenny_company_postgresql : 
+    container_name : kenny_company_postgreSQL
+    build : ./PostgreSQL
+    restart : always
+    ports : 
+      - 5455:5432
+    environment :
+      - POSTGRES_USER = root
+      - POSTGRES_PASSWORD = 1234
+      - TZ=Asia/Seoul
+    volumes :
+      - /Users/kimchanghee/KennyCompany/svelteSpringboot/PostgreSQL/data:/var/lib/postgresql/data
+  
+  kenny_company_redis :
+    container_name : kenny_company_redis
+    build : ./Redis
+    restart : always
+    command: redis-server /usr/local/conf/redis.conf
+    ports :
+     - 6379:6379
+    #environment :
+    volumes :
+     - /Users/kimchanghee/KennyCompany/svelteSpringboot/Redis/data/data
+     - /Users/kimchanghee/KennyCompany/svelteSpringboot/Redis/conf/redis.conf:/usr/local/conf/redis.conf
+    labels:
+     - "name=redis"
+     - "mode=standalone"
+
+    
